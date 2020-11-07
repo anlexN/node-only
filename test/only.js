@@ -1,33 +1,30 @@
+const only = require('..');
+const assert = require('assert').strict;
 
-var only = require('..');
-
-var obj = {
-  name: 'tobi',
-  last: 'holowaychuk',
-  email: 'tobi@learnboost.com',
-  _id: '12345'
+const obj = {
+    name: 'tobi',
+    last: 'holowaychuk',
+    email: 'tobi@learnboost.com',
+    _id: '12345'
 };
 
-var expected = {
-  name: 'tobi',
-  last: 'holowaychuk',
-  email: 'tobi@learnboost.com'
+const expected = {
+    name: 'tobi',
+    last: 'holowaychuk',
+    email: 'tobi@learnboost.com'
 };
 
-describe('only(obj, keys)', function(){
-  describe('given an array', function(){
-    it('should return only the whitelisted properties', function(){
-      only(obj, ['name', 'email', 'last']).should.eql(expected);
-    })
-  })
+describe('only(obj, keys)', function () {
 
-  describe('given an string', function(){
-    it('should return only the whitelisted properties', function(){
-      only(obj, 'name email last').should.eql(expected);
+    it('given an array', function () {
+        assert(only(obj, ['name', 'email', 'last']), expected);
     })
-  })
 
-  it('should omit undefineds', function(){
-    only({}, 'foo bar baz').should.eql({});
-  })
+    it('given an string', function () {
+        assert(only(obj, 'name email last'), expected);
+    })
+
+    it('should omit undefineds', function () {
+        assert(only({}, 'foo bar baz'), expected);
+    })
 })

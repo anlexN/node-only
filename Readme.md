@@ -12,19 +12,19 @@
  An array or space-delimited string may be given:
 
 ```js
-var obj = {
+const obj = {
   name: 'tobi',
   last: 'holowaychuk',
   email: 'tobi@learnboost.com',
   _id: '12345'
 };
 
-var user = only(obj, 'name last email');
+const user = only(obj, 'name last email');
 ```
 
 You can also use array form:
 ```js
-var user = only(obj, ['name', 'last', 'email']);
+const user = only(obj, ['name', 'last', 'email']);
 ```
 
 yields:
